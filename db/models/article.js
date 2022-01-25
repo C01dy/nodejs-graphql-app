@@ -1,9 +1,10 @@
 const { Schema, Types, model } = require('mongoose');
+
 const { ObjectId } = Types;
 
 const articleSchema = new Schema({
   id: ObjectId,
-  author: {
+  authorId: {
     type: ObjectId,
     ref: 'User',
   },
@@ -14,8 +15,8 @@ const articleSchema = new Schema({
   publishingDate: Date,
   tags: [String],
   images: [String],
-  comments: [{ type: ObjectId, ref: 'Comment' }],
-  likedUsers: [{ type: ObjectId, ref: 'User' }],
+  commentsIds: [{ type: ObjectId, ref: 'Comment' }],
+  likedUsersIds: [{ type: ObjectId, ref: 'User' }],
 });
 
-module.exports = model('Article', articleSchema);
+module.exports = model('Article', articleSchema, 'article');
