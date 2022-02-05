@@ -9,7 +9,6 @@ const userSchema = new Schema({
   email: String,
   password: String,
   avatarUrl: String,
-  favoriteArticlesIds: [{ type: ObjectId, ref: 'Article' }],
   writtenArticlesIds: [{ type: ObjectId, ref: 'Article' }],
 });
 
